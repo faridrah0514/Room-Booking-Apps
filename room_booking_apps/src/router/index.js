@@ -7,6 +7,7 @@ import Login from '../views/Login.vue'
 import Vuex from '../views/Vuex.vue'
 import Status from '../views/Status.vue'
 import SearchResult from '../views/SearchResult'
+import AdminPage from '../views/AdminPage'
 
 
 Vue.use(VueRouter)
@@ -46,6 +47,11 @@ Vue.use(VueRouter)
     path: '/searchresult',
     name: 'SearchResult',
     component: SearchResult
+  },
+  {
+    path: '/adminpage',
+    name: 'AdminPage',
+    component: AdminPage
   }
 ]
 

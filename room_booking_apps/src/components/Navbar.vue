@@ -6,7 +6,7 @@
         <v-btn to="/" v-if="login" text class="white--text">Home</v-btn>
         <v-btn to="/status" text v-if="login" class="white--text">Status</v-btn>
         <v-btn to="/login" v-if="logout" text class="white--text">Login</v-btn>
-        <v-btn v-if="login && isAdmin === 'admin'" text class="white--text">Admin Page</v-btn>
+        <v-btn v-if="login && isAdmin === 'admin'" to="/adminpage" text class="white--text">Admin Page</v-btn>
       </v-toolbar-item>
       <v-spacer></v-spacer>
       <v-toolbar-item>

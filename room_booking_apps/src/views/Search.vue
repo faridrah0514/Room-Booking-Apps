@@ -11,6 +11,7 @@
               :nudge-right="40"
               transition="scale-transition"
               offset-y
+              required
               min-width="290px"
             >
               <template v-slot:activator="{ on }">
@@ -35,11 +36,12 @@
               :return-value.sync="time"
               transition="scale-transition"
               offset-y
+              required
               max-width="290px"
               min-width="290px"
             >
               <template v-slot:activator="{ on }">
-                <v-text-field v-model="queries.time" label="Picker in menu" readonly v-on="on"></v-text-field>
+                <v-text-field :rules="['required']" v-model="queries.time" required label="Picker in menu" readonly v-on="on"></v-text-field>
               </template>
               <v-time-picker
                 v-if="menu2"
@@ -53,7 +55,7 @@
         </v-row>
         <v-row>
           <v-col>
-            <v-text-field v-model="queries.roomCapacity" label="Room Capacity"></v-text-field>
+            <v-text-field :rules="['required']" v-model="queries.roomCapacity" label="Room Capacity"></v-text-field>
           </v-col>
         </v-row>
         <v-row>

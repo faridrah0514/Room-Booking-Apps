@@ -1,15 +1,7 @@
 <template>
   <div class="search-result">
     <v-container>
-      <!-- <h3>{{ queriesResult }}</h3>
-      <p>{{ search }}</p>
-      <hr />
-      <p>{{ result }}</p>
-      <hr />-->
-      <!-- <p>{{ filteredResult[0] }}</p> -->
-      <!-- <h1>{{ filteredResult[0] }}</h1> -->
-      <!-- <h1>{{ filteredResult[0] }}</h1> -->
-      <!-- <h1>{{ filteredResult }}</h1> -->
+      <h1>{{ filteredResult[0] }}</h1>
       <v-row>
         <v-col v-for="(item, index) in filteredResult[1]" v-bind:key="index" md="4">
           <v-card>
@@ -33,10 +25,6 @@
         </v-col>
       </v-row>
     </v-container>
-    <p>{{ result }}</p>
-    <hr>
-    <p>Search</p>
-    <p>{{ search }}</p>
   </div>
 </template>
 
@@ -44,6 +32,7 @@
 import Axios from "axios";
 
 export default {
+  name:"search-result",
   data() {
     return {
       search: null,
@@ -52,32 +41,36 @@ export default {
     };
   },
   computed: {
-    queriesResult() {
-      return this.$store.state.queriesResult;
-    },
     filteredResult() {
-
-        var lala = this.result.filter(item => {
+      console.log("ini dari filteredResult");
+      console.log(this.result);
+      // return this.result;
+      var lala = null;
+      if (this.result) {
+        lala = this.result.filter(item => {
           for (let i = 0; i < item.booking_detail.length; i++) {
             if (item.booking_detail[i].date == this.search.date) {
               return true;
             }
           }
         });
-
-        if (lala.length > 0) {
-          //   this.showResult == lala
-          return ["booked rooms", lala];
-        } else {
-          //   this.showResult = this.result
+        console.log("panjang lala", lala.length);
+        console.log(typeof lala);
+        console.log(lala);
+        if (lala.length == 0) {
           return ["All rooms available", this.result];
+        } else {
+          return ["Rooms for you", lala];
         }
-      } 
-    
+      } else {
+        return []
+      }
+    }
   },
   mounted() {
     Axios.get("http://localhost:8081/roomsearch")
       .then(item => {
+        console.log("ini pas mounted");
         console.log(item.data);
         this.result = item.data;
       })

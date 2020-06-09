@@ -69,5 +69,15 @@ app.get('/roomsearch', (req, res) => {
   res.json(new_rooms)
 })
 
+app.post('/adduser', (req, res) => {
+  var user_detail = req.body
+  const uid = users.map(item => item.user_id)
+  const new_uid = Math.max(...uid) + 1
+  user_detail.user_id = new_uid
+  console.log(user_detail)
+  users.push(user_detail)
+  res.json(users)
+})
+
 app.listen(8081, console.log("server runs in port 8081"));
 
