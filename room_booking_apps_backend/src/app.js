@@ -3,9 +3,6 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const mysql = require("mysql");
-const { users } = require("./public/users");
-const { rooms } = require("./public/rooms");
-const { booking } = require("./public/booking");
 const jwt = require("jsonwebtoken");
 
 const db_config = {
