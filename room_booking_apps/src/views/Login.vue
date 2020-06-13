@@ -75,6 +75,7 @@ export default {
             this.$store.state.user_role = this.server_response.role
             this.$store.state.user_name = this.server_response.username
             this.$store.state.user_id = this.server_response.user_id
+            this.$store.state.user_token = this.server_response.jwt_token
             this.$router.push('/')
           } else {
             this.$store.state.login_status = "logout"

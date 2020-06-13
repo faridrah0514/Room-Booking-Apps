@@ -10,6 +10,7 @@ export default new Vuex.Store({
         user_name: null,
         user_id: null,
         user_role: null,
+        user_token: null,
         queriesResult: null
     },
     mutations:{

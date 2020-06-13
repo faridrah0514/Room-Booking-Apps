@@ -1,0 +1,5 @@
+Server detail:
+- installed on windows
+- MySQL Community Edition version 8.0.18
+- create username/password as admin/admin
+- run the script after installation to create the database and dump dummy file
